@@ -1,0 +1,12 @@
+.wrapper {
+  height: 80px;
+  background-color: cadetblue;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+}
