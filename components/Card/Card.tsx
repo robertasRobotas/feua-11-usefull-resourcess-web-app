@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import styles from "./styles.module.css";
 
 type CardType = {
@@ -17,12 +18,15 @@ const Card: React.FC<CardType> = ({
   _id,
 }) => {
   return (
-    <div key={_id} className={styles.wrapper}>
-      <a href={content_link} target="_blank">
-        <h3>{title}</h3>
-        <h6>{category}</h6>
-        <p>{description}</p>
-      </a>
+    <div>
+      X
+      <Link href={`/resource/${_id}`}>
+        <div key={_id} className={styles.wrapper}>
+          <h3>{title}</h3>
+          <h6>{category}</h6>
+          <p>{description}</p>
+        </div>
+      </Link>
     </div>
   );
 };

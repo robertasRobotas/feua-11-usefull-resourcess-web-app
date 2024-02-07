@@ -6,6 +6,7 @@ import Card from "@/components/Card/Card";
 import Header from "@/components/Header/header";
 import Footer from "@/components/Footer/Footer";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 type ResourceType = {
   _id: string;
@@ -33,10 +34,15 @@ const Home = () => {
       authorization: cookie.get("jwt_token"),
     };
 
-    const response = await axios.get("http://localhost:3001/resources", {
-      headers: headers,
-    });
-    setResources(response.data.resources);
+    try {
+      const response = await axios.get("http://localhost:3001/resources", {
+        headers: headers,
+      });
+      setResources(response.data.resources);
+    } catch (err) {
+      console.log(err);
+      router.push("/login");
+    }
   };
 
   useEffect(() => {
@@ -47,6 +53,11 @@ const Home = () => {
   return (
     <>
       <Header />
+
+      <Link href="/addResource">
+        <h4 className={styles.addTutorial}>Add tutorial</h4>
+      </Link>
+
       <div className={styles.cards}>
         {resources.map((resource) => {
           return (
