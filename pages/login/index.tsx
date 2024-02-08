@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import cookie from "js-cookie";
 import styles from "./styles.module.css";
 import { useRouter } from "next/router";
+import PageTemplate from "@/components/PageTemplate/PageTemplate";
 
 const Login = () => {
   const router = useRouter();
@@ -37,27 +38,36 @@ const Login = () => {
     }
   };
 
+  // useEffect(() => {
+  //   const jwt = cookie.get("jwt_token");
+  //   if (jwt) {
+  //     router.push("/");
+  //   }
+  // }, []);
+
   return (
-    <div>
-      <div className={styles.form}>
-        <h1>Login</h1>
-        <input
-          placeholder="email"
-          value={email}
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-        />
-        <input
-          placeholder="password"
-          value={password}
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-        />
-        <button onClick={onClickButton}>Login</button>
+    <PageTemplate>
+      <div>
+        <div className={styles.form}>
+          <h1>Login</h1>
+          <input
+            placeholder="email"
+            value={email}
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+          />
+          <input
+            placeholder="password"
+            value={password}
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
+          />
+          <button onClick={onClickButton}>Login</button>
+        </div>
       </div>
-    </div>
+    </PageTemplate>
   );
 };
 
