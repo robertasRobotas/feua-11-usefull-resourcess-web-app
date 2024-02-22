@@ -21,7 +21,7 @@ const Resource = () => {
       authorization: cookie.get("jwt_token"),
     };
     const response = await axios.get(
-      `http://localhost:3001/resources/${router.query.id}`,
+      `https://feua11-back-usefull-resourcess.onrender.com/resources/${router.query.id}`,
       {
         headers: headers,
       }

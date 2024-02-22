@@ -33,7 +33,7 @@ const AddResource = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/resources",
+        "https://feua11-back-usefull-resourcess.onrender.com/resources",
         resource,
         {
           headers: headers,

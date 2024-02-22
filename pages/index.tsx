@@ -35,9 +35,12 @@ const Home = () => {
     };
 
     try {
-      const response = await axios.get("http://localhost:3001/resources", {
-        headers: headers,
-      });
+      const response = await axios.get(
+        "https://feua11-back-usefull-resourcess.onrender.com/resources",
+        {
+          headers: headers,
+        }
+      );
       setResources(response.data.resources);
     } catch (err) {
       console.log(err);
