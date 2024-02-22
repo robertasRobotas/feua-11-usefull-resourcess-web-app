@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import cookie from "js-cookie";
 import styles from "./styles.module.css";
-import Header from "../../components/Header/Header";
-import Footer from "@/components/Footer/Footer";
 import PageTemplate from "@/components/PageTemplate/PageTemplate";
 
 const AddResource = () => {
